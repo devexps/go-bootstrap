@@ -84,6 +84,7 @@ func (x *RemoteConfig) GetEtcd() *RemoteConfig_Etcd {
 	return nil
 }
 
+// Consul
 type RemoteConfig_Consul struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -147,6 +148,7 @@ func (x *RemoteConfig_Consul) GetKey() string {
 	return ""
 }
 
+// Etcd
 type RemoteConfig_Etcd struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
