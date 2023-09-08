@@ -23,12 +23,12 @@ func Bootstrap(serviceInfo *ServiceInfo) (*conf.Bootstrap, log.Logger, registry.
 	ll := NewLoggerProvider(cfg.Logger, serviceInfo)
 
 	// init registrar
-	//reg := NewRegistry(cfg.Registry)
+	reg := NewRegistry(cfg.Registry)
 
 	// init tracer
-	//if err := NewTracerProvider(cfg.Trace, serviceInfo); err != nil {
-	//	panic(err)
-	//}
+	if err := NewTracerProvider(cfg.Trace, serviceInfo); err != nil {
+		panic(err)
+	}
 
-	return cfg, ll, nil
+	return cfg, ll, reg
 }

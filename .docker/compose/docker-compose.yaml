@@ -22,3 +22,10 @@ services:
       - ETCDCTL_API=3
       - ALLOW_NONE_AUTHENTICATION=yes
       - ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
+
+  zookeeper:
+    image: docker.io/bitnami/zookeeper:latest
+    ports:
+      - "2181:2181"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
