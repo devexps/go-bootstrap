@@ -11,12 +11,14 @@ require (
 	github.com/devexps/go-micro/log/fluent/v2 v2.0.0-20230908050544-6405f2d205af
 	github.com/devexps/go-micro/log/logrus/v2 v2.0.0-20230908050544-6405f2d205af
 	github.com/devexps/go-micro/log/zap/v2 v2.0.0-20230908050544-6405f2d205af
+	github.com/devexps/go-micro/metrics/prometheus/v2 v2.0.0-20230908050544-6405f2d205af
 	github.com/devexps/go-micro/registry/consul/v2 v2.0.0-20230908050544-6405f2d205af
 	github.com/devexps/go-micro/registry/etcd/v2 v2.0.0-20230908050544-6405f2d205af
 	github.com/devexps/go-micro/registry/zookeeper/v2 v2.0.0-20230908050544-6405f2d205af
 	github.com/devexps/go-micro/v2 v2.0.0-20230908050544-6405f2d205af
 	github.com/go-zookeeper/zk v1.0.3
 	github.com/hashicorp/consul/api v1.20.0
+	github.com/prometheus/client_golang v1.16.0
 	github.com/sirupsen/logrus v1.9.3
 	go.etcd.io/etcd/client/v3 v3.5.8
 	go.opentelemetry.io/contrib/propagators/b3 v1.11.1
@@ -30,7 +32,10 @@ require (
 )
 
 require (
+	github.com/StackExchange/wmi v1.2.1 // indirect
 	github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da // indirect
+	github.com/beorn7/perks v1.0.1 // indirect
+	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/devexps/go-pkg/v2 v2.0.0-20230830041653-2d2203e98e28 // indirect
@@ -39,6 +44,7 @@ require (
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/go-logr/logr v1.2.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
+	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/go-playground/form/v4 v4.2.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
@@ -53,19 +59,26 @@ require (
 	github.com/imdario/mergo v0.3.12 // indirect
 	github.com/mattn/go-colorable v0.1.6 // indirect
 	github.com/mattn/go-isatty v0.0.12 // indirect
+	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
 	github.com/openzipkin/zipkin-go v0.4.1 // indirect
 	github.com/philhofer/fwd v1.1.2 // indirect
+	github.com/prometheus/client_model v0.3.0 // indirect
+	github.com/prometheus/common v0.42.0 // indirect
+	github.com/prometheus/procfs v0.10.1 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
+	github.com/shirou/gopsutil/v3 v3.21.8 // indirect
 	github.com/tinylib/msgp v1.1.8 // indirect
+	github.com/tklauser/go-sysconf v0.3.11 // indirect
+	github.com/tklauser/numcpus v0.6.0 // indirect
 	go.etcd.io/etcd/api/v3 v3.5.8 // indirect
 	go.etcd.io/etcd/client/pkg/v3 v3.5.8 // indirect
 	go.opentelemetry.io/otel/trace v1.15.1 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/net v0.9.0 // indirect
-	golang.org/x/sync v0.1.0 // indirect
+	golang.org/x/sync v0.2.0 // indirect
 	golang.org/x/sys v0.10.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
 	google.golang.org/genproto v0.0.0-20230526161137-0005af68ea54 // indirect
