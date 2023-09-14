@@ -2,8 +2,9 @@ package bootstrap
 
 import (
 	"context"
-	"google.golang.org/grpc"
 	"time"
+
+	"google.golang.org/grpc"
 
 	"github.com/devexps/go-bootstrap/api/gen/go/common/conf"
 

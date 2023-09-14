@@ -1,10 +1,12 @@
 package bootstrap
 
 import (
-	"github.com/devexps/go-bootstrap/api/gen/go/common/conf"
-	"google.golang.org/grpc"
 	"os"
 	"strings"
+
+	"google.golang.org/grpc"
+
+	"github.com/devexps/go-bootstrap/api/gen/go/common/conf"
 
 	"github.com/devexps/go-micro/v2/config"
 	"github.com/devexps/go-micro/v2/log"
