@@ -17,7 +17,7 @@ message Middleware {
   bool enable_recovery = 2;
   bool enable_tracing = 3;
   bool enable_validate = 4;
-  bool enable_metric = 5;
+  bool enable_metrics = 5;
   bool enable_circuit_breaker = 6;
   bool enable_limiter = 7;
 

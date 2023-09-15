@@ -17,6 +17,7 @@ require (
 	github.com/devexps/go-micro/registry/zookeeper/v2 v2.0.0-20230908050544-6405f2d205af
 	github.com/devexps/go-micro/v2 v2.0.0-20230908050544-6405f2d205af
 	github.com/go-zookeeper/zk v1.0.3
+	github.com/gorilla/handlers v1.5.1
 	github.com/hashicorp/consul/api v1.20.0
 	github.com/prometheus/client_golang v1.16.0
 	github.com/sirupsen/logrus v1.9.3
@@ -40,6 +41,7 @@ require (
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/devexps/go-pkg/v2 v2.0.0-20230830041653-2d2203e98e28 // indirect
 	github.com/fatih/color v1.9.0 // indirect
+	github.com/felixge/httpsnoop v1.0.1 // indirect
 	github.com/fluent/fluent-logger-golang v1.9.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/go-logr/logr v1.2.4 // indirect

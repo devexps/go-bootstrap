@@ -85,7 +85,7 @@ func CreateGrpcServer(cfg *conf.Bootstrap, ll log.Logger, m ...middleware.Middle
 		if cfg.Server.Grpc.Middleware.GetEnableLimiter() {
 			ms = append(ms, ratelimiter.Server())
 		}
-		if cfg.Server.Grpc.Middleware.GetEnableMetric() {
+		if cfg.Server.Grpc.Middleware.GetEnableMetrics() {
 			ms = append(ms, metrics.Server(withMetricRequests(), withMetricHistogram()))
 		}
 		if cfg.Server.Grpc.Middleware.GetEnableLogging() {
