@@ -80,7 +80,7 @@ func LoadBootstrapConfig(configPath string) *conf.Bootstrap {
 
 // NewConfigProvider creates a configuration
 func NewConfigProvider(configPath string) config.Config {
-	err, rc := LoadRemoteConfigSourceConfigs(configPath)
+	rc, err := LoadRemoteConfigSourceConfigs(configPath)
 	if err != nil {
 		log.Error("LoadRemoteConfigSourceConfigs: ", err.Error())
 	}
@@ -101,7 +101,7 @@ func NewConfigProvider(configPath string) config.Config {
 }
 
 // LoadRemoteConfigSourceConfigs loads the local configuration of the remote configuration source
-func LoadRemoteConfigSourceConfigs(configPath string) (error, *conf.RemoteConfig) {
+func LoadRemoteConfigSourceConfigs(configPath string) (*conf.RemoteConfig, error) {
 	configPath = configPath + "/" + remoteConfigSourceConfigFile
 	if !pathExists(configPath) {
 		return nil, nil
@@ -122,15 +122,15 @@ func LoadRemoteConfigSourceConfigs(configPath string) (error, *conf.RemoteConfig
 	var err error
 
 	if err = cfg.Load(); err != nil {
-		return err, nil
+		return nil, err
 	}
 
 	var rc conf.Bootstrap
 	if err = cfg.Scan(&rc); err != nil {
-		return err, nil
+		return nil, err
 	}
 
-	return nil, rc.Config
+	return rc.Config, nil
 }
 
 // NewFileConfigSource creates a local file configuration source
