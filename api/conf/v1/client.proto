@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package conf;
+
+import "google/protobuf/duration.proto";
+import "conf/v1/middleware.proto";
+
+option go_package = "github.com/devexps/go-bootstrap/gen/api/go/conf/v1;conf";
+
+// Client
+message Client {
+  // HTTP
+  message HTTP {
+    google.protobuf.Duration timeout = 1;
+    Middleware middleware = 2;
+  }
+
+  // GRPC
+  message GRPC {
+    google.protobuf.Duration timeout = 1;
+    Middleware middleware = 2;
+  }
+
+  HTTP http = 1;
+  GRPC grpc = 2;
+}

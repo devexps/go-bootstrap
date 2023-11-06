@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package conf;
+
+import "google/protobuf/duration.proto";
+import "conf/v1/middleware.proto";
+
+option go_package = "github.com/devexps/go-bootstrap/gen/api/go/conf/v1;conf";
+
+// Server
+message Server {
+  // HTTP
+  message HTTP {
+    // CORS
+    message CORS {
+      repeated string headers = 1;
+      repeated string methods = 2;
+      repeated string origins = 3;
+    }
+
+    string network = 1;
+    string addr = 2;
+    google.protobuf.Duration timeout = 3;
+    CORS cors = 4;
+    Middleware middleware = 5;
+    bool enable_swagger = 6;
+  }
+
+  // GRPC
+  message GRPC {
+    string network = 1;
+    string addr = 2;
+    google.protobuf.Duration timeout = 3;
+    Middleware middleware = 4;
+  }
+
+  // RPC
+  HTTP http = 1;
+  GRPC grpc = 2;
+}

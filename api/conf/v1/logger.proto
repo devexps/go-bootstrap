@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package conf;
+
+option go_package = "github.com/devexps/go-bootstrap/gen/api/go/conf/v1;conf";
+
+// Logger
+message Logger {
+  // Zap
+  message Zap {
+    string filename = 1;
+    string level = 2;
+    int32 max_size = 3;
+    int32 max_age = 4;
+    int32 max_backups = 5;
+  }
+
+  // Logrus
+  message Logrus {
+    string level = 1;
+    string formatter = 2; // Output format: text, json.
+    string timestamp_format = 3; // Define the timestamp format, for example: "2006-01-02 15:04:05"
+    bool disable_colors = 4;
+    bool disable_timestamp = 5;
+  }
+
+  // Fluent
+  message Fluent {
+    string endpoint = 1;
+  }
+
+  string type = 1;
+
+  Zap zap = 2;
+  Logrus logrus = 3;
+  Fluent fluent = 4;
+}

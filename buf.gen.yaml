@@ -1,0 +1,16 @@
+version: v1
+managed:
+  enabled: true
+  optimize_for: SPEED
+  go_package_prefix:
+    default: github.com/devexps/go-bootstrap/gen/api/go
+    except:
+      - buf.build/googleapis/googleapis
+      - buf.build/gnostic/gnostic
+      - buf.build/devexps/gomicroapis
+plugins:
+  # generate go struct code
+  #- plugin: buf.build/protocolbuffers/go
+  - name: go
+    out: gen/api/go
+    opt: paths=source_relative

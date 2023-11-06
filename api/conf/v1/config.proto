@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package conf;
+
+import "google/protobuf/duration.proto";
+
+option go_package = "github.com/devexps/go-bootstrap/gen/api/go/conf/v1;conf";
+
+// RemoteConfig
+message RemoteConfig {
+  // Etcd
+  message Etcd {
+    repeated string endpoints = 1;
+    google.protobuf.Duration timeout = 2;
+    string key = 3;
+  }
+
+  // Consul
+  message Consul {
+    string scheme = 1;
+    string address = 2;
+    string key = 3;
+  }
+
+  // Kubernetes
+  message Kubernetes {
+    string namespace = 1;
+    string master_url = 2;
+    string label_selector = 3;
+    string field_selector = 4;
+  }
+
+  string type = 1;
+
+  Etcd etcd = 2;
+  Consul consul = 3;
+  Kubernetes kubernetes = 4;
+}

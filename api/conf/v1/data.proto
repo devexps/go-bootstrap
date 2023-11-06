@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package conf;
+
+import "google/protobuf/duration.proto";
+
+option go_package = "github.com/devexps/go-bootstrap/gen/api/go/conf/v1;conf";
+
+// Data
+message Data {
+  // Database
+  message Database {
+    string driver = 1; // Support：mysql, postgresql, mongodb, sqlite...
+    string source = 2; // Data source (DSN string)
+    bool migrate = 3; // Data migration
+    bool debug = 4; // Debug
+    int32 max_idle_connections = 5; // Maximum number of idle connections in the connection pool
+    int32 max_open_connections = 6; // Maximum number of open connections in the connection pool
+    google.protobuf.Duration connection_max_lifetime = 7; // The maximum length of time a connection can be reused
+  }
+
+  // redis
+  message Redis {
+    string network = 1;
+    string addr = 2;
+    string password = 3;
+    int32 db = 4; // Database index
+    google.protobuf.Duration dial_timeout = 5;
+    google.protobuf.Duration read_timeout = 6;
+    google.protobuf.Duration write_timeout = 7;
+  }
+
+  // MongoDB
+  message MongoDB {
+    string address = 1;
+  }
+
+  // ClickHouse
+  message ClickHouse {
+    string address = 1;
+  }
+
+  // Kafka
+  message Kafka {
+    repeated string addrs = 1;
+    string codec = 2;
+  }
+
+  // ElasticSearch
+  message ElasticSearch {
+    string address = 1;
+  }
+
+  Database database = 1;  // DatabaseDSN
+
+  Redis redis = 10;  // Redis
+  MongoDB mongodb = 11;  // MongoDB database
+  ElasticSearch elastic_search = 12;  // ElasticSearch database
+
+  Kafka kafka = 20;  // Kafka service
+}
