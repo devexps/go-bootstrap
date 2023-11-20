@@ -24,6 +24,7 @@ message Server {
     CORS cors = 4;
     Middleware middleware = 5;
     bool enable_swagger = 6;
+    bool enable_pprof = 7;
   }
 
   // GRPC

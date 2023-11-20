@@ -3,8 +3,8 @@ package bootstrap
 import (
 	"github.com/devexps/go-micro/v2/log"
 
-	"github.com/go-redis/redis/extra/redisotel/v8"
-	"github.com/go-redis/redis/v8"
+	"github.com/redis/go-redis/extra/redisotel/v9"
+	"github.com/redis/go-redis/v9"
 
 	conf "github.com/devexps/go-bootstrap/gen/api/go/conf/v1"
 )
@@ -23,7 +23,20 @@ func NewRedisClient(conf *conf.Data) *redis.Client {
 		log.Fatalf("failed opening connection to redis")
 		return nil
 	}
-	rdb.AddHook(redisotel.NewTracingHook())
+	// open tracing instrumentation.
+	if conf.GetRedis().GetEnableTracing() {
+		if err := redisotel.InstrumentTracing(rdb); err != nil {
+			log.Fatalf("failed open tracing: %s", err.Error())
+			panic(err)
+		}
+	}
 
+	// open metrics instrumentation.
+	if conf.GetRedis().GetEnableMetrics() {
+		if err := redisotel.InstrumentMetrics(rdb); err != nil {
+			log.Fatalf("failed open metrics: %s", err.Error())
+			panic(err)
+		}
+	}
 	return rdb
 }

@@ -9,6 +9,7 @@ import (
 	httpGoMicro "github.com/devexps/go-micro/v2/transport/http"
 	"github.com/devexps/go-pkg/v2/ratelimiter"
 	"github.com/devexps/go-pkg/v2/ratelimiter/lbbr"
+	"net/http/pprof"
 
 	"github.com/gorilla/handlers"
 
@@ -58,5 +59,25 @@ func CreateHTTPServer(cfg *conf.Bootstrap, m ...middleware.Middleware) *httpGoMi
 	if cfg.Server.Http.Timeout != nil {
 		opts = append(opts, httpGoMicro.Timeout(cfg.Server.Http.Timeout.AsDuration()))
 	}
-	return httpGoMicro.NewServer(opts...)
+	srv := httpGoMicro.NewServer(opts...)
+
+	if cfg.Server.Http.GetEnablePprof() {
+		registerHttpPprof(srv)
+	}
+	return srv
+}
+
+func registerHttpPprof(s *httpGoMicro.Server) {
+	s.HandleFunc("/debug/pprof", pprof.Index)
+	s.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
+	s.HandleFunc("/debug/pprof/profile", pprof.Profile)
+	s.HandleFunc("/debug/pprof/symbol", pprof.Symbol)
+	s.HandleFunc("/debug/pprof/trace", pprof.Trace)
+
+	s.HandleFunc("/debug/pprof/allocs", pprof.Handler("allocs").ServeHTTP)
+	s.HandleFunc("/debug/pprof/block", pprof.Handler("block").ServeHTTP)
+	s.HandleFunc("/debug/pprof/goroutine", pprof.Handler("goroutine").ServeHTTP)
+	s.HandleFunc("/debug/pprof/heap", pprof.Handler("heap").ServeHTTP)
+	s.HandleFunc("/debug/pprof/mutex", pprof.Handler("mutex").ServeHTTP)
+	s.HandleFunc("/debug/pprof/threadcreate", pprof.Handler("threadcreate").ServeHTTP)
 }
