@@ -3,18 +3,18 @@ module github.com/devexps/go-bootstrap
 go 1.20
 
 require (
-	github.com/devexps/go-micro/config/consul/v2 v2.0.4
-	github.com/devexps/go-micro/config/etcd/v2 v2.0.4
-	github.com/devexps/go-micro/config/k8s/v2 v2.0.4
-	github.com/devexps/go-micro/log/fluent/v2 v2.0.4
-	github.com/devexps/go-micro/log/logrus/v2 v2.0.4
-	github.com/devexps/go-micro/log/zap/v2 v2.0.4
-	github.com/devexps/go-micro/registry/consul/v2 v2.0.4
-	github.com/devexps/go-micro/registry/etcd/v2 v2.0.4
-	github.com/devexps/go-micro/registry/k8s/v2 v2.0.4
-	github.com/devexps/go-micro/registry/zookeeper/v2 v2.0.4
-	github.com/devexps/go-micro/v2 v2.0.4
-	github.com/devexps/go-pkg/v2 v2.0.1
+	github.com/devexps/go-micro/config/consul/v2 v2.0.5
+	github.com/devexps/go-micro/config/etcd/v2 v2.0.5
+	github.com/devexps/go-micro/config/k8s/v2 v2.0.5
+	github.com/devexps/go-micro/log/fluent/v2 v2.0.5
+	github.com/devexps/go-micro/log/logrus/v2 v2.0.5
+	github.com/devexps/go-micro/log/zap/v2 v2.0.5
+	github.com/devexps/go-micro/registry/consul/v2 v2.0.5
+	github.com/devexps/go-micro/registry/etcd/v2 v2.0.5
+	github.com/devexps/go-micro/registry/k8s/v2 v2.0.5
+	github.com/devexps/go-micro/registry/zookeeper/v2 v2.0.5
+	github.com/devexps/go-micro/v2 v2.0.5
+	github.com/devexps/go-pkg/v2 v2.0.2
 	github.com/go-zookeeper/zk v1.0.3
 	github.com/google/subcommands v1.2.0
 	github.com/gorilla/handlers v1.5.2
@@ -63,7 +63,7 @@ require (
 	github.com/go-playground/form/v4 v4.2.1 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/google/gnostic-models v0.6.8 // indirect
+	github.com/google/gnostic-models v0.6.9-0.20230804172637-c7be7c783f49 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/google/gofuzz v1.2.0 // indirect
 	github.com/google/uuid v1.4.0 // indirect
@@ -119,9 +119,9 @@ require (
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/time v0.4.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
-	google.golang.org/genproto v0.0.0-20231106174013-bbf56f31fb17 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20231106174013-bbf56f31fb17 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20231106174013-bbf56f31fb17 // indirect
+	google.golang.org/genproto v0.0.0-20231120223509-83a465c0220f // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20231120223509-83a465c0220f // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20231120223509-83a465c0220f // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
