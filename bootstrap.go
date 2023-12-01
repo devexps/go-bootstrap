@@ -30,5 +30,11 @@ func Bootstrap(serviceInfo *ServiceInfo) (*conf.Bootstrap, log.Logger, registry.
 	if err = NewTracerProvider(commonConfig.Trace, serviceInfo); err != nil {
 		panic(fmt.Sprintf("init tracer failed: %v", err))
 	}
+
+	// init metrics
+	if err = NewMetrics(); err != nil {
+		panic(err)
+	}
+
 	return commonConfig, ll, reg
 }

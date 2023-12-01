@@ -71,6 +71,7 @@ func NewTracerProvider(cfg *conf.Tracer, serviceInfo *ServiceInfo) error {
 		return errors.New("create tracer provider failed")
 	}
 	otel.SetTracerProvider(tp)
+	//otel.SetTextMapPropagator(b3.New(b3.WithInjectEncoding(b3.B3MultipleHeader | b3.B3SingleHeader)))
 
 	return nil
 }

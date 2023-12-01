@@ -2,12 +2,13 @@ package bootstrap
 
 import (
 	"context"
-	"github.com/devexps/go-micro/v2/middleware/circuitbreaker"
-	"github.com/devexps/go-pkg/v2/ratelimiter"
-	"github.com/devexps/go-pkg/v2/ratelimiter/lbbr"
 	"time"
 
 	"google.golang.org/grpc"
+
+	"github.com/devexps/go-micro/v2/middleware/circuitbreaker"
+	"github.com/devexps/go-pkg/v2/ratelimiter"
+	"github.com/devexps/go-pkg/v2/ratelimiter/lbbr"
 
 	"github.com/devexps/go-micro/v2/log"
 	"github.com/devexps/go-micro/v2/middleware"
@@ -43,7 +44,7 @@ func CreateGrpcClient(ctx context.Context, r registry.Discovery, serviceName str
 			if cfg.Client.Grpc.Middleware.GetEnableValidate() {
 				ms = append(ms, validate.Validator())
 			}
-			if cfg.Server.Grpc.Middleware.GetEnableCircuitBreaker() {
+			if cfg.Client.Grpc.Middleware.GetEnableCircuitBreaker() {
 				ms = append(ms, circuitbreaker.Client())
 			}
 		}

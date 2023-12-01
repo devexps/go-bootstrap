@@ -9,9 +9,9 @@ import (
 	httpGoMicro "github.com/devexps/go-micro/v2/transport/http"
 	"github.com/devexps/go-pkg/v2/ratelimiter"
 	"github.com/devexps/go-pkg/v2/ratelimiter/lbbr"
-	"net/http/pprof"
 
 	"github.com/gorilla/handlers"
+	"net/http/pprof"
 
 	conf "github.com/devexps/go-bootstrap/gen/api/go/conf/v1"
 )
@@ -32,6 +32,9 @@ func CreateHTTPServer(cfg *conf.Bootstrap, m ...middleware.Middleware) *httpGoMi
 		}
 		if cfg.Server.Http.Middleware.GetEnableTracing() {
 			ms = append(ms, tracing.Server())
+		}
+		if cfg.Server.Http.Middleware.Metrics != nil {
+			ms = append(ms, middlewareMetrics())
 		}
 		if cfg.Server.Http.Middleware.GetEnableValidate() {
 			ms = append(ms, validate.Validator())
@@ -63,6 +66,9 @@ func CreateHTTPServer(cfg *conf.Bootstrap, m ...middleware.Middleware) *httpGoMi
 
 	if cfg.Server.Http.GetEnablePprof() {
 		registerHttpPprof(srv)
+	}
+	if cfg.Server.Http.Middleware.GetMetrics() != nil {
+		handleMetrics(srv)
 	}
 	return srv
 }

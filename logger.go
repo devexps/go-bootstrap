@@ -6,6 +6,7 @@ import (
 	fluentLogger "github.com/devexps/go-micro/log/fluent/v2"
 	logrusLogger "github.com/devexps/go-micro/log/logrus/v2"
 	zapLogger "github.com/devexps/go-micro/log/zap/v2"
+
 	"github.com/sirupsen/logrus"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
