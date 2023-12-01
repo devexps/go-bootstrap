@@ -3,7 +3,7 @@ package bootstrap
 import (
 	"context"
 	"errors"
-
+	"go.opentelemetry.io/contrib/propagators/b3"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/exporters/jaeger"
@@ -71,7 +71,7 @@ func NewTracerProvider(cfg *conf.Tracer, serviceInfo *ServiceInfo) error {
 		return errors.New("create tracer provider failed")
 	}
 	otel.SetTracerProvider(tp)
-	//otel.SetTextMapPropagator(b3.New(b3.WithInjectEncoding(b3.B3MultipleHeader | b3.B3SingleHeader)))
+	otel.SetTextMapPropagator(b3.New(b3.WithInjectEncoding(b3.B3MultipleHeader | b3.B3SingleHeader)))
 
 	return nil
 }
